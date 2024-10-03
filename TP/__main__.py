@@ -6,6 +6,11 @@ from TP.kmers import stream_kmers, kmer2str
 def jaccard(fileA, fileB, k):
     j = 0
     # --- To complete ---
+    index_ = create_index(fileA, k)
+    intersect = 
+    
+    
+
     return j
 
 
