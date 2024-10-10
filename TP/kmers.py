@@ -15,6 +15,21 @@ def kmer2str(val, k):
     return "".join(str_val)
 
 
+def encode_nucl(letter):
+    encoding = {'A':0, 'C':1, 'T':2, 'G':3}
+    return encoding[letter]
+
+def str2kmer(kmer_str, k):
+    kmer = 0
+    for i in range(k):
+        kmer <<= 2
+        kmer += encode_nucl(kmer_str[i])
+    
+    return kmer
+
 def stream_kmers(text, k):
-    # --- To complete ---
-    pass
+    kmers = set()
+    for i in range(len(text) - k + 1):
+        kmer = str2kmer(text[i:i+k], k)
+        kmers.add(kmer)
+    return kmers
