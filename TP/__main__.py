@@ -4,14 +4,15 @@ from TP.kmers import stream_kmers, kmer2str
 
 
 def jaccard(fileA, fileB, k):
-    j = 0
-    # --- To complete ---
-    index_ = create_index(fileA, k)
-    intersect = 
-    
-    
-
-    return j
+    kmersA = set()
+    kmersB = set()
+    for sequence in fileA:
+        kmersA.update(stream_kmers(sequence, k))
+    for sequence in fileB:
+        kmersB.update(stream_kmers(sequence, k))
+    intersection = len(kmersA & kmersB)
+    union = len(kmersA | kmersB)
+    return intersection / union
 
 
 
