@@ -1,4 +1,4 @@
-
+# fonction donné
 def kmer2str(val, k):
     """ Transform a kmer integer into a its string representation
     :param int val: An integer representation of a kmer
@@ -14,19 +14,20 @@ def kmer2str(val, k):
     str_val.reverse()
     return "".join(str_val)
 
-
+# simple correspondance
 def encode_nucl(letter):
     encoding = {'A':0, 'C':1, 'T':2, 'G':3}
     return encoding[letter]
 
+# fonction pour transformé une string en un kmer
 def str2kmer(kmer_str, k):
     kmer = 0
     for i in range(k):
         kmer <<= 2
-        kmer += encode_nucl(kmer_str[i])
-    
+        kmer += encode_nucl(kmer_str[i])    
     return kmer
 
+# fonction suffisante sans passer par des streams
 def stream_kmers(text, k):
     kmers = set()
     for i in range(len(text) - k + 1):
