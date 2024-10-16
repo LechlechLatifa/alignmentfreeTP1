@@ -12,6 +12,8 @@ def jaccard(fileA, fileB, k):
         kmersB.update(stream_kmers(sequence, k))
     intersection = len(kmersA & kmersB)
     union = len(kmersA | kmersB)
+    if union == 0:
+        return 0
     return intersection / union
 
 
